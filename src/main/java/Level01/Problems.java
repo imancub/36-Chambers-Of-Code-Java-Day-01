@@ -10,7 +10,9 @@ public class Problems {
      */
     public String wordCount(String input) {
         // code goes here
-        return null;
+        String[] splitInput = input.split(" ");
+        Integer inputCount = splitInput.length;
+        return inputCount.toString();
     }
 
     /**
@@ -20,7 +22,9 @@ public class Problems {
      */
 
     public String firstReverse(String input){
-        return null;
+        StringBuilder inputSB = new StringBuilder(input);
+        StringBuilder reversedInput = inputSB.reverse();
+        return reversedInput.toString();
     }
 
     /**
@@ -31,7 +35,16 @@ public class Problems {
      */
     public String longestWord(String input) {
         // code goes here
-        return null;
+        int maxLength = 0;
+        String longestWord = "";
+        String[] inputArray = input.split("[\\W]");
+        for(String word : inputArray) {
+            if(word.length() > maxLength) {
+                maxLength = word.length();
+                longestWord = word;
+            }
+        }
+        return longestWord;
     }
 
     /**
@@ -41,6 +54,15 @@ public class Problems {
      */
     public String swapCase(String str) {
         // code goes here
-        return null;
+        char[] strCharArray = str.toCharArray();
+        for (int i = 0; i < strCharArray.length; i++) {
+            if(Character.isLowerCase(strCharArray[i])){
+                strCharArray[i] = Character.toUpperCase(strCharArray[i]);
+            } else if(Character.isUpperCase(strCharArray[i])) {
+                strCharArray[i] = Character.toLowerCase(strCharArray[i]);
+            }
+        }
+        String swapCaseResult = new String(strCharArray);
+        return swapCaseResult;
     }
 }
